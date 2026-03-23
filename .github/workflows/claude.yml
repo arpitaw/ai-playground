@@ -1,0 +1,17 @@
+name: Claude AI Action
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  run-claude:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Claude AI
+        uses: anthropics/claude-code-action@main
+        with:
+          prompt: "Hello from my AI test project!"
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
